@@ -1,0 +1,10 @@
+#root {
+  padding: 50px 40px;
+}
+
+p,
+h1,
+h2,
+ul {
+  margin: 0;
+}
