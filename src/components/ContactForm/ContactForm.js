@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styles from './ContactForm.module.css';
-import { v4 as uuidv4 } from 'uuid';
 import { toast } from 'react-toastify';
-import { connect } from 'react-redux';
-import contactsOperations from '../../redux/contacts/contacts-operations';
 
 class ContactForm extends Component {
   state = {
@@ -48,7 +45,7 @@ class ContactForm extends Component {
   handleSubmit = e => {
     e.preventDefault();
 
-    const newContact = { id: uuidv4(), ...this.state };
+    const newContact = { ...this.state };
     if (!this.isValidContact(newContact)) {
       const { addContact } = this.props;
 
@@ -99,12 +96,4 @@ ContactForm.propTypes = {
   items: PropTypes.array.isRequired,
 };
 
-const mapStateToProps = state => ({
-  items: state.contacts.items,
-});
-
-const mapDispatchToProps = dispatch => ({
-  addContact: newContact => dispatch(contactsOperations.addContact(newContact)),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(ContactForm);
+export default ContactForm;

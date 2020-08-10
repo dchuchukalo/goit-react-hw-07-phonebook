@@ -3,10 +3,13 @@ import {
   combineReducers,
   getDefaultMiddleware,
 } from '@reduxjs/toolkit';
-import logger from 'redux-logger';
-import contactsReducer from './contacts/contacts-reducer';
+// import logger from 'redux-logger';
+import { contactsReducer } from './contacts';
 
-const middleware = [...getDefaultMiddleware(), logger];
+const middleware = [
+  ...getDefaultMiddleware(),
+  // logger
+];
 
 const rootReducer = combineReducers({
   contacts: contactsReducer,

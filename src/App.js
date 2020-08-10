@@ -5,7 +5,7 @@ import ContactList from './components/ContactList';
 import Filter from './components/Filter';
 import { ToastContainer, Zoom } from 'react-toastify';
 import { connect } from 'react-redux';
-import contactsOperations from './redux/contacts/contacts-operations';
+import { contactsOperations, contactsSelectors } from './redux/contacts/';
 
 import styles from './App.module.css';
 import 'react-toastify/dist/ReactToastify.css';
@@ -42,7 +42,7 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({
-  items: state.contacts.items,
+  items: contactsSelectors.getItems(state),
 });
 
 const mapDispatchToProps = dispatch => ({
